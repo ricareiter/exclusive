@@ -1,9 +1,9 @@
-import { CiSearch } from "react-icons/ci";
+import { CiSearch, CiHeart, CiUser, CiShoppingCart } from "react-icons/ci";
 
 const Navbar = () => {
   return (
     <div className="container mx-auto mt-6 mb-8">
-      <div className="flex justify-between items-center bg-gray-300">
+      <div className="flex justify-between items-center">
         <div>
           <h3 className="font-bold text-2xl">Exclusive</h3>
         </div>
@@ -23,14 +23,21 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div>
-          <div className="relative flex items-center">
+        <div className="flex items-center">
+          <div className="relative flex items-center w-full">
             <input
               type="text"
               placeholder="What are you looking for?"
-              className="px-4 py-2 bg-gray-100 placeholder:text-sm rounded-[6px]"
+              className="w-full pr-11 pl-4 py-2 bg-gray-100 placeholder:text-sm rounded-[6px] outline-none"
             />
-            <CiSearch className="absolute right-1 w-6 h-6" />
+            <button className="absolute right-2">
+              <CiSearch className="w-6 h-6" />
+            </button>
+          </div>
+          <div className="flex items-center space-x-4 ml-6">
+            <CiHeart className="w-6 h-6 hover:cursor-pointer" />
+            <CiShoppingCart className="w-6 h-6 hover:cursor-pointer" />
+            <CiUser className="w-6 h-6 hover:cursor-pointer" />
           </div>
         </div>
       </div>
