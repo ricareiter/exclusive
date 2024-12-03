@@ -1,5 +1,6 @@
 import ProductCard from "./ProductCard";
 import keyboardImage from "@/public/images/AK-900 Wired Keyboard.jpg";
+import mouseImage from "@/public/images/Mouse Exbom MS G280.jpg";
 
 const BestSellingProducts = () => {
   return (
@@ -18,10 +19,10 @@ const BestSellingProducts = () => {
           productReviews={65}
         />
         <ProductCard
-          productName="AK-900 Wired Keyboard"
-          productPrice={260}
-          productImage={keyboardImage}
-          productReviews={65}
+          productName="Mouse Exbom MS G280"
+          productPrice={120}
+          productImage={mouseImage}
+          productReviews={38}
         />
         <ProductCard
           productName="AK-900 Wired Keyboard"
