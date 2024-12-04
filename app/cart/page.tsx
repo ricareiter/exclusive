@@ -4,7 +4,7 @@ import CartItem from "@/components/CartItem";
 import CartTotal from "@/components/CartTotal";
 import { useSelector } from "react-redux";
 
-const page = () => {
+const Cart = () => {
   const products = useSelector((state) => state.cart);
 
   return (
@@ -53,4 +53,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Cart;
