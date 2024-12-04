@@ -4,8 +4,14 @@ import keyboardImage from "@/public/images/AK-900 Wired Keyboard.jpg";
 import { IoMdStar } from "react-icons/io";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { TbRecycle, TbTruckDelivery } from "react-icons/tb";
+import { useSearchParams } from "next/navigation";
 
 const ProductPage = () => {
+  const searchParams = useSearchParams();
+  const productName = searchParams.get("productName");
+  const productPrice = searchParams.get("productPrice");
+  const productReviews = searchParams.get("productReviews");
+
   return (
     <div className="container flex mx-auto space-x-12 mt-14">
       <div className="flex items-center justify-center space-x-8 w-2/3">
@@ -48,7 +54,7 @@ const ProductPage = () => {
         </div>
       </div>
       <div className="w-1/3 mt-10">
-        <h3 className="font-bold text-2xl">Havic HV G-92 Gamepad</h3>
+        <h3 className="font-bold text-2xl">{productName}</h3>
         <div className="flex items-center space-x-3 mt-2 mb-2">
           <div className="flex">
             <IoMdStar className="w-5 h-5 text-yellow-400" />
@@ -57,10 +63,10 @@ const ProductPage = () => {
             <IoMdStar className="w-5 h-5 text-yellow-400" />
             <IoMdStar className="w-5 h-5 text-yellow-400" />
           </div>
-          <p className="text-gray-500 text-sm">(150 Reviews)</p>
+          <p className="text-gray-500 text-sm">({productReviews} Reviews)</p>
           <p className="text-green-400 text-sm">In Stock</p>
         </div>
-        <p className="font-semibold text-xl mb-4">$192.00</p>
+        <p className="font-semibold text-xl mb-4">${productPrice}.00</p>
         <p className="font-semibold text-sm tracking-wide">
           PlayStation 5 Controller Skin High quality vinyl with air channel
           adhesive for easy bubble free install & mess free removal Pressure
