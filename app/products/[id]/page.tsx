@@ -90,8 +90,9 @@ const ProductPage = () => {
         <div className="flex items-center space-x-4 mt-8">
           <div className="relative w-40">
             <input
-              type="number"
+              type="text"
               value={productQuantity}
+              readOnly
               className="border-2 border-gray-400 text-center font-bold text-lg w-full py-2 rounded-sm appearance-none"
             />
             <div className="absolute bottom-0 left-0 bg-white group hover:bg-red-500 hover:cursor-pointer transition-all duration-100">
