@@ -5,6 +5,7 @@ interface Props {
   productName: string;
   productQuantity: number;
   productPrice: number;
+  productSubtotal: number;
 }
 
 const CartItem = ({
@@ -12,6 +13,7 @@ const CartItem = ({
   productName,
   productQuantity,
   productPrice,
+  productSubtotal,
 }: Props) => {
   return (
     <tr className="text-center border shadow-md rounded-md">
@@ -22,14 +24,8 @@ const CartItem = ({
         </div>
       </td>
       <td className="px-4 py-2 w-1/4">${productPrice}</td>
-      <td className="px-4 py-2 w-1/4">
-        <input
-          type="number"
-          className="border w-14 py-1 px-1 text-center"
-          defaultValue={productQuantity}
-        />
-      </td>
-      <td className="px-4 py-2 w-1/4">${productPrice}</td>
+      <td className="px-4 py-2 w-1/4">{productQuantity}</td>
+      <td className="px-4 py-2 w-1/4">${productSubtotal}</td>
     </tr>
   );
 };

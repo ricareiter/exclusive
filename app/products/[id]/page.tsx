@@ -5,12 +5,27 @@ import { IoMdStar } from "react-icons/io";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { TbRecycle, TbTruckDelivery } from "react-icons/tb";
 import { useSearchParams } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { addProduct } from "@/lib/cartSlice";
+import { useState } from "react";
 
 const ProductPage = () => {
   const searchParams = useSearchParams();
   const productName = searchParams.get("productName");
   const productPrice = searchParams.get("productPrice");
   const productReviews = searchParams.get("productReviews");
+  const [productQuantity, setProductQuantity] = useState(1);
+
+  const dispatch = useDispatch();
+
+  const handleProductQuantity = (btn: string) => {
+    if (productQuantity === 1 && btn === "subtract") return;
+    if (btn === "add") {
+      setProductQuantity(productQuantity + 1);
+    } else if (btn === "subtract") {
+      setProductQuantity(productQuantity - 1);
+    }
+  };
 
   return (
     <div className="container flex mx-auto space-x-12 mt-14">
@@ -76,17 +91,34 @@ const ProductPage = () => {
           <div className="relative w-40">
             <input
               type="number"
-              defaultValue={1}
+              value={productQuantity}
               className="border-2 border-gray-400 text-center font-bold text-lg w-full py-2 rounded-sm appearance-none"
             />
             <div className="absolute bottom-0 left-0 bg-white group hover:bg-red-500 hover:cursor-pointer transition-all duration-100">
-              <FaMinus className="w-12 h-12 border-2 border-gray-400 p-1 group-hover:text-white group-hover:border-red-500" />
+              <FaMinus
+                onClick={() => handleProductQuantity("subtract")}
+                className="w-12 h-12 border-2 border-gray-400 p-1 group-hover:text-white group-hover:border-red-500"
+              />
             </div>
             <div className="absolute bottom-0 right-0 bg-white group hover:bg-red-500 hover:cursor-pointer transition-all duration-100">
-              <FaPlus className="w-12 h-12 border-2 border-gray-400 p-1 group-hover:text-white group-hover:border-red-500" />
+              <FaPlus
+                onClick={() => handleProductQuantity("add")}
+                className="w-12 h-12 border-2 border-gray-400 p-1 group-hover:text-white group-hover:border-red-500"
+              />
             </div>
           </div>
-          <button className="bg-red-500 font-semibold text-white rounded-sm px-14 py-3 border border-red-500 hover:text-red-500 hover:bg-white hover:cursor-pointer transition-all duration-200">
+          <button
+            onClick={() =>
+              dispatch(
+                addProduct({
+                  productName: productName,
+                  productPrice: productPrice,
+                  productQuantity: productQuantity,
+                })
+              )
+            }
+            className="bg-red-500 font-semibold text-white rounded-sm px-14 py-3 border border-red-500 hover:text-red-500 hover:bg-white hover:cursor-pointer transition-all duration-200"
+          >
             Buy Now
           </button>
         </div>

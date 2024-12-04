@@ -9,7 +9,7 @@ const CartTotal = () => {
 
   useEffect(() => {
     const total = products.reduce((total, product) => {
-      return total + product.productPrice;
+      return total + product.productPrice * product.productQuantity;
     }, 0);
 
     setTotalCartValue(total);

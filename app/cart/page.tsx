@@ -26,26 +26,9 @@ const Cart = () => {
               productName={product.productName}
               productQuantity={product.productQuantity}
               productPrice={product.productPrice}
+              productSubtotal={product.productSubtotal}
             />
           ))}
-          {/* <CartItem
-            productImage={keyboardImage}
-            productName={productName}
-            productQuantity={productQuantity}
-            productPrice={productPrice}
-          />
-          <CartItem
-            productImage={keyboardImage}
-            productName="AK-900 Wired Keyboard"
-            productQuantity={1}
-            productPrice={650}
-          />
-          <CartItem
-            productImage={keyboardImage}
-            productName="AK-900 Wired Keyboard"
-            productQuantity={1}
-            productPrice={650}
-          /> */}
         </tbody>
       </table>
       <CartTotal />
